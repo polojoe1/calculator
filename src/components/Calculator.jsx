@@ -1,38 +1,44 @@
-import React from 'react'
+import React, {useState} from 'react'
+
+
 
 const Calculator = () => {
+
+    const [output, setOutput]=useState('');
   return (
-    <div className='border-solid border-4 border-blue-500 bg-white h-[450px] w-[360px] flex flex-col items-center '>
+    <div className="hi bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800 opacity-80 rounded-3xl p-1 h-[460px]">
+    <div className='rounded-3xl border-grad bg-black h-[450px]  w-[345px] flex flex-col items-center '>
         <div className="screen w-[100%] flex pt-4 justify-center mb-2">
-            <input className='h-14 border-4 border-gray-500 w-[90%] flex justify-end items-end' type="text" />
+            <input value={output} onChange={(e)=>setOutput(e.target.value)} className='h-14  pl-10 bg-black text-white text-2xl w-[90%] flex justify-end items-end' type="text" />
         </div>
-        <div className="clearButton w-[84%] h-8 flex justify-between">
-            <button className="text-black text-lg bg-gray-400 text-center  h-8 w-16 rounded-full">AC</button>
+        <div className="clearButton ml-12 w-[84%] h-8 flex justify-between">
+            <button onClick={()=>setOutput('')} className="text-black text-lg bg-gray-400 text-center  h-8 w-16 rounded-full">AC</button>
         </div>
-        <div className="topRow w-[84%] h-20 flex pt-4 justify-between" >
-            <button className='bg-gray-700 text-white w-14 h-14 text-3xl rounded-full'>7</button>
-            <button className='bg-gray-700 text-white w-14 h-14 text-3xl rounded-full'>8</button>
-            <button className='bg-gray-700 text-white w-14 h-14 text-3xl rounded-full'>9</button>
-            <button className='bg-orange-500 h-14 border-2 border-orange-800 w-14 text-3xl text-white rounded-full'>+</button>
+        <div className="topRow w-[84%] h-18 flex pt-4 justify-center" >
+            <button onClick={()=>setOutput(output+'7' )} className='bg-gray-700 text-white mr-2 w-14 h-14 text-3xl rounded-full'>7</button>
+            <button onClick={()=>setOutput(output+'8' )} className='bg-gray-700 text-white mr-2 w-14 h-14 text-3xl rounded-full'>8</button>
+            <button onClick={()=>setOutput(output+'9' )} className='bg-gray-700 text-white mr-2 w-14 h-14 text-3xl rounded-full'>9</button>
+            <button onClick={()=>setOutput(output+'+' )} className='bg-orange-500 h-14 border-2 border-orange-800 w-14 text-3xl text-white mr-2 rounded-full'>+</button>
         </div>
-        <div className="topNextRow w-[84%] h-20 flex pt-4 justify-between" >
-            <button className='bg-gray-700 text-white w-14 h-14 text-3xl rounded-full'>4</button>
-            <button className='bg-gray-700 text-white w-14 h-14 text-3xl rounded-full'>5</button>
-            <button className='bg-gray-700 text-white w-14 h-14 text-3xl rounded-full'>6</button>
-            <button className='bg-orange-500 h-14 border-2 border-orange-800 w-14 text-3xl text-white rounded-full'>-</button>
+        <div className="topNextRow w-[84%] h-18 flex pt-4 justify-center" >
+            <button onClick={()=>setOutput(output+'4' )} className='bg-gray-700 text-white mr-2 w-14 h-14 text-3xl rounded-full'>4</button>
+            <button onClick={()=>setOutput(output+'5' )} className='bg-gray-700 text-white mr-2 w-14 h-14 text-3xl rounded-full'>5</button>
+            <button onClick={()=>setOutput(output+'6' )} className='bg-gray-700 text-white mr-2 w-14 h-14 text-3xl rounded-full'>6</button>
+            <button onClick={()=>setOutput(output+'-' )} className='bg-orange-500 h-14 border-2 border-orange-800 w-14 text-3xl text-white mr-2 rounded-full'>-</button>
         </div>
-        <div className="BottomNextRow w-[84%] h-20 flex pt-4 justify-between" >
-            <button className='bg-gray-700 text-white w-14 h-14 text-3xl rounded-full'>1</button>
-            <button className='bg-gray-700 text-white w-14 h-14 text-3xl rounded-full'>2</button>
-            <button className='bg-gray-700 text-white w-14 h-14 text-3xl rounded-full'>3</button>
-            <button className='bg-orange-500 h-14 border-2 border-orange-800 w-14 text-3xl text-white rounded-full'>x</button>
+        <div className="BottomNextRow w-[84%] h-18 flex pt-4 justify-center" >
+            <button onClick={()=>setOutput(output+'1' )} className='bg-gray-700 text-white mr-2 w-14 h-14 text-3xl rounded-full'>1</button>
+            <button onClick={()=>setOutput(output+'2' )} className='bg-gray-700 text-white mr-2 w-14 h-14 text-3xl rounded-full'>2</button>
+            <button onClick={()=>setOutput(output+'3' )} className='bg-gray-700 text-white mr-2 w-14 h-14 text-3xl rounded-full'>3</button>
+            <button onClick={()=>setOutput(output+'*' )} className='bg-orange-500 h-14 border-2 border-orange-800 w-14 text-3xl text-white mr-2 rounded-full'>x</button>
         </div>
-        <div className="topRow w-[84%] h-20 flex pt-4 justify-between" >
-            <button className='bg-gray-700 text-white w-14 h-14 text-3xl rounded-full'>0</button>
-            <button className='bg-gray-700 text-white w-14 h-14 text-3xl rounded-full'>.</button>
-            <button className='bg-blue-500 border-blue-900 border-2 text-white w-14 h-14 text-3xl rounded-full'>=</button>
-            <button className='bg-orange-500 h-14 border-2 border-orange-800 w-14 text-3xl text-white rounded-full'>/</button>
+        <div className="topRow w-[84%] h-18 flex pt-4 justify-center" >
+            <button onClick={()=>setOutput(output+'0' )} className='bg-gray-700 text-white mr-2 w-14 h-14 text-3xl rounded-full'>0</button>
+            <button onClick={()=>setOutput(output+'.' )} className='bg-gray-700 text-white mr-2 w-14 h-14 text-3xl rounded-full'>.</button>
+            <button onClick={()=>setOutput(output+'='+ eval(output))} className='bg-blue-500 border-blue-900 border-2 text-white mr-2 w-14 h-14 text-3xl rounded-full'>=</button>
+            <button onClick={()=>setOutput(output+'/' )} className='bg-orange-500 h-14 border-2 border-orange-800 w-14 text-3xl text-white mr-2 rounded-full'>/</button>
         </div>
+    </div>
     </div>
   )
 }
