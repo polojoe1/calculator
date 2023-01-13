@@ -4,6 +4,7 @@ import React, {useState} from 'react'
 
 const Calculator = () => {
 
+    //state for the result of eval
     const [output, setOutput]=useState('');
   return (
     <div className="hi bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800 opacity-80 rounded-3xl p-1 h-[460px]">
